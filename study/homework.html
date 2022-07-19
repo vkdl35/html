@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제</title>
+    <style>
+        fieldset {border: 0; margin: 0; padding: 0;}
+        ul {list-style: none;}
+        ul > li{float: left; text-align: center; width: 160px; height: 50px;
+        line-height: 50px; border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <form name="f" id="f">
+        <ul id="menu"></ul>
+    </form>
+</body>
+<script>
+
+
+    var data = [
+        ["푸드페어","메가뷰티쇼","종근당건강","필립스","글로벌 쇼핑데이","특가 대방출"],
+        ["https://www.coupang.com/np/campaigns/16160?from=home_C1&traid=home_C1&trcid=11169775",
+        "https://pages.coupang.com/p/62484?from=home_C1&traid=home_C1&trcid=6256722548",
+        "https://pages.coupang.com/f/s7260?from=home_C1&traid=home_C1&trcid=11168322",
+        "https://pages.coupang.com/f/s976?from=home_C1&traid=home_C1&trcid=11168328",
+        "https://pages.coupang.com/p/63611?from=home_C1&traid=home_C1&trcid=11169777",
+        "https://www.coupang.com/np/campaigns/82?from=home_C1&traid=home_C1&trcid=5667822457"]
+    ];
+
+    var w = 0;
+    var li_menu,text_menu, frm;
+    while(w < 6) {
+        li_menu = document.createElement("li");
+        text_menu = document.createTextNode(data[0][w]);
+        li_menu.append(text_menu);
+        document.getElementById("menu").append(li_menu);
+
+        //console.log(data[1][w]);
+        li_menu.onclick = "location.href="+data[1][w];
+        w++;
+    }
+
+    
+</script>
+</html>
