@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 110.45 */
+        ul {width: 336px; height: auto; list-style: none; margin: 0; padding: 0;}
+        ul > a > li {width: 110px; float: left; border: 1px solid black;}
+    </style>
+    <script>
+        const banners = [
+            {
+                "p_title":"지마켓",
+                "p_img":"./mini/logo_quick_01.png",
+                "p_link":"https://www.gmarket.co.kr/"
+            },
+            {
+                "p_title":"옥션",
+                "p_img":"./mini/logo_quick_02.png",
+                "p_link":"http://www.auction.co.kr/"
+            },
+            {
+                "p_title":"하프클럽",
+                "p_img":"./mini/logo_quick_03.png",
+                "p_link":"http://www.halfclub.com/"
+            },
+            {
+                "p_title":"11번가",
+                "p_img":"./mini/logo_quick_04.png",
+                "p_link":"https://www.11st.co.kr/"
+            },
+            {
+                "p_title":"위메프",
+                "p_img":"./mini/logo_quick_05.png",
+                "p_link":"https://front.wemakeprice.com/"
+            },
+            {
+                "p_title":"쿠팡",
+                "p_img":"./mini/logo_quick_06.png",
+                "p_link":"https://www.coupang.com/"
+            }
+        ];
+    </script>
+</head>
+<body>
+    <form name="f" id="f">
+        <ul id="menu"></ul>
+    </form>
+</body>
+<script>
+    var w = 0;
+    var li_menu, a_tag, banner_img;
+    
+    for(w in banners) {
+        // var d = banners[w]["p_img"];
+        // console.log(d);
+        a_tag = document.createElement("a");
+        li_menu = document.createElement("li");
+        banner_img = document.createElement("img");
+
+        li_menu.append(banner_img);
+        a_tag.append(li_menu);
+        document.getElementById("menu").append(a_tag);
+
+        banner_img.src = banners[w]["p_img"];
+        a_tag.href = banners[w]["p_link"];
+
+    }
+
+
+    
+
+
+</script>
+</html>
