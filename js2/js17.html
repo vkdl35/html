@@ -61,20 +61,20 @@
     //console.log(data["members"]);       //사용자 이름
     //console.log(data["email"][2][1])    //email key 안에 그룹배열을 확인함
 
-    // var k;
-    // for (k in data) {
-    //     Object.keys(k).forEach(function(a,b,c) {
-    //         console.log(data[k][a]);
-    //     })
-    // }
+    //console.log(Object.keys(data).length);  //4개
+    //console.log(data["members"].length);    //3개
 
-    Object.keys(data).forEach(function(a,b,c) {
-        data[a].forEach(function(aa,bb,cc) {
-            console.log(aa);
+    var f;
+    for(f in data["members"]) { //data["members"]인 이유는 키 안에 들어있는 값이 3개이기 때문, 그냥 data로 돌리면 오류남
+        Object.keys(data).forEach(function(aa,bb,cc) {
+            if(aa=="members") {
+                console.log(data[aa][f][0]);
+            }
+            else {
+                console.log(data[aa][f][1]);
+            }
         });
-    });
-
-
+    }
 
 </script>
 </html>
