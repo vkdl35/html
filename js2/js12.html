@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1s">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 6일차 복합함수, 메소드함수, 메소드 리턴함수</title>
+    <script>
+        /*복합함수*/
+        function aaa() {
+            /*복합함수는 무조건 하나를 return해야 합니다.
+            그 외에 다른 함수는 함수 호출 형태로 구성합니다.*/
+            var a = "홍길동";
+            var b = "이순신";
+            var z = function() {
+                console.log(a);
+            }
+            var j = function() {
+                console.log(b);
+            }
+            j();
+            return z;
+        }
+
+        /*메소드함수*/
+        function bbb() {    //java기준 class 부분
+            this.a1 = function() {  //java 기준 method 부분
+                console.log("test1");
+            }
+            this.a2 = function() {
+                console.log("test2");
+            }
+        }
+        var h = new bbb();
+
+        /*메소드 리턴 함수*/
+        function kkk() {    //java 기준 class
+            this.load = function(v) {   //java 기준 setter
+                var j = this.success(v);
+                console.log(j);
+            }
+            this.success = function(data) { //java 기준 getter
+                var h = data * 10;
+                return h;
+            }
+            this.data = function() {    //배열로드
+                var array = ["1","2","3"];
+            }
+        }
+        var zzz = new kkk();    //java 기준 class 인스턴스
+    </script>
+</head>
+<body>
+    <input type="button" value="복합함수" onclick="aaa()()"><!--aaa()() : 복합함수-->
+    <input type="button" value="메소드함수" onclick="h.a2()">
+    <input type="button" value="메소드함수" onclick="h.a1()">
+    <input type="button" value="메소드함수(return)" onclick="zzz.load(5)">
+</body>
+</html>
