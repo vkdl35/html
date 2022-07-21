@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://192.168.100.77:8080/js/product_list.js"></script>
+</head>
+<body>
+    <form id="f" name="f" method="get">
+        <table border="1" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="all" onclick="aaa();"></th>
+                    <th>상품명</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+        <input type="button" name="pay" value="결제하기" onclick="bbb();">
+    </form>
+</body>
+<script>
+
+    function aaa() {
+        var f = document.getElementById("f");
+        var all = document.getElementById("all");
+        var o;
+        
+
+        while(o < 4) {
+            f.ch[o].checked = useck;
+            w++;
+        }
+    }
+
+    var html = document.getElementById("tbody");
+    var tr, td, input, value;
+
+    var w,ww;
+    for(w in product["pd_name"]) {
+        //console.log(product[w][0]);
+        //console.log(product["pd_name"][w][0]);
+        tr = document.createElement("tr");
+        input = document.createElement("input");
+        input.type = "checkbox";
+        input.name = "ch";
+        input.value = product["pd_name"][w][2];
+
+        for(ww in product["pd_name"][0]) {
+            
+            td = document.createElement("td");
+            tr.append(td);
+            var cd;
+            
+            
+            if(ww==0) {
+                td.append(input);
+            }
+            else if(ww==1) {
+                td.append(product["pd_name"][w][0]);
+            }
+            else if(ww==2) {
+                td.append(Number(product["pd_name"][w][1]).toLocaleString());
+            }
+
+            //console.log(product["pd_name"][w][0]);
+            //console.log(product["pd_name"][ww][1]);
+        }
+        
+        td.append();
+        html.append(tr);
+
+    }
+
+</script>
+</html>
