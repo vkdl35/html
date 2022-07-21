@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>숙제</title>
     <style>
-        fieldset {border: 0; margin: 0; padding: 0;}
         ul {list-style: none;}
-        ul > li{float: left; text-align: center; width: 160px; height: 50px;
+        ul > a > li{float: left; text-align: center; width: 160px; height: 50px;
         line-height: 50px; border: 1px solid black;}
+        a:link {color: black; }
+        a:visited {color: black; }
+        a:hover{color: white;}
+        ul > a > li:hover{background-color: black;}
     </style>
 </head>
 <body>
@@ -31,15 +34,17 @@
     ];
 
     var w = 0;
-    var li_menu,text_menu, frm;
+    var li_menu,text_menu, a_tag;
     while(w < 6) {
+        a_tag = document.createElement("a");
         li_menu = document.createElement("li");
         text_menu = document.createTextNode(data[0][w]);
+        
+        a_tag.append(li_menu);
         li_menu.append(text_menu);
-        document.getElementById("menu").append(li_menu);
-
-        //console.log(data[1][w]);
-        li_menu.onclick = "location.href="+data[1][w];
+        document.getElementById("menu").append(a_tag);
+        
+        a_tag.href = data[1][w];
         w++;
     }
 
